@@ -1,6 +1,6 @@
 site:
   # 配置跨域域名
-  corsDomain: ["http://localhost:3000","http://localhost:3001"]
+  corsDomain: ["http://react-blog-1.s3-website-ap-northeast-1.amazonaws.com/","http://localhost:3000","http://localhost:3001"]
   # 每页显示条数
   pageSize: 20
   createTopicScore: 10
