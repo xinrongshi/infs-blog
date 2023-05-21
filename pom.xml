@@ -90,6 +90,13 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 			<version>3.0.6</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-framework-bom</artifactId>
+			<version>5.3.25</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

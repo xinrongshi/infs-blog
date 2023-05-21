@@ -9,7 +9,6 @@ import java.util.List;
  * @Author: Lexi
  * @Date: 2023/05/10
  */
-@Service
 public interface UserService {
 
     /**

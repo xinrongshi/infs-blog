@@ -8,7 +8,6 @@ import com.infs.blog.model.Article;
 import com.infs.blog.model.Theme;
 import com.infs.blog.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +25,7 @@ public class ThemeController {
     private ArticleService articleService;
 
     @Autowired
-    private com.infs.blog.service.ThemeService ThemeService;
+    private com.infs.blog.service.ThemeService themeService;
 
     @Autowired
     private SiteConfig siteConfig;
@@ -51,7 +50,7 @@ public class ThemeController {
      */
     @GetMapping(value = "/themes")
     private Result themeList(){
-        List<Theme> list = ThemeService.findThemeAll(null, null);
+        List<Theme> list = themeService.findThemeAll(null, null);
         return Result.success(list);
     }
 }

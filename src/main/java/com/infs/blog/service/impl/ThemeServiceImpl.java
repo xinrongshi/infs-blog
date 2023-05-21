@@ -5,14 +5,17 @@ import com.infs.blog.model.Theme;
 import com.infs.blog.service.ThemeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 /**
  * @Author: Lexi
  * @Date: 2023/05/10
  */
+
 @Service
 public class ThemeServiceImpl implements ThemeService {
+
 
     @Autowired
     private ThemeMapper themeMapper;
@@ -27,5 +30,4 @@ public class ThemeServiceImpl implements ThemeService {
     public List<Theme> findThemeAll(Integer pageNo, Integer pageSize) {
         return themeMapper.findThemeAll(pageNo,pageSize);
     }
-
 }

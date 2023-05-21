@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
  * @Author: Lexi
  * @Date: 2023/05/10
  */
-@Service
 public interface AccessTokenService {
 
     AccessToken getByUserId(Integer userId);
