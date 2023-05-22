@@ -75,11 +75,11 @@ public class IndexController {
         // 保存用户
         user = userService.create(username, password, email);
         // 保存Token
-        AccessToken accessToken = accessTokenService.create(jwtTokenUtil.generateToken(user.getUsername()), user.getUserId());
+//        AccessToken accessToken = accessTokenService.create(jwtTokenUtil.generateToken(user.getUsername()), user.getUserId());
         HashMap<String, Object> map = new HashMap<>();
         map.put("username",user.getUsername());
         map.put("avatar",user.getAvatar());
-        map.put("token",accessToken.getToken());
+//        map.put("token",accessToken.getToken());
         return Result.success(map);
     }
 
@@ -93,12 +93,12 @@ public class IndexController {
         User user1 = userService.findUserByName(username);
         System.out.println(user1);
         ApiAssert.notNull(user, "用户不存在");
-        ApiAssert.isTrue(!(user1.getPassword().equals(password)), "密码不正确");
-        AccessToken accessToken = accessTokenService.getByUserId(user.getUserId());
+        ApiAssert.isTrue(user1.getPassword().equals(password), "密码不正确");
+//        AccessToken accessToken = accessTokenService.getByUserId(user.getUserId());
         HashMap<String, Object> map = new HashMap<>();
         map.put("username",user.getUsername());
         map.put("avatar",user.getAvatar());
-        map.put("token",accessToken.getToken());
+//        map.put("token",accessToken.getToken());
         return Result.success(map);
     }
 }
