@@ -87,11 +87,12 @@ public class IndexController {
     public Result login(@RequestBody User user){
         String username = user.getUsername();
         String password = user.getPassword();
+        System.out.println(user);
         ApiAssert.notEmpty(username, "请输入用户名");
         ApiAssert.notEmpty(password, "请输入密码");
         User user1 = userService.findUserByName(username);
         ApiAssert.notNull(user, "用户不存在");
-        ApiAssert.isTrue(!user1.getPassword().equals(password), "密码不正确");
+        ApiAssert.isTrue(!(user1.getPassword().equals(password)), "密码不正确");
         AccessToken accessToken = accessTokenService.getByUserId(user.getUserId());
         HashMap<String, Object> map = new HashMap<>();
         map.put("username",user.getUsername());
