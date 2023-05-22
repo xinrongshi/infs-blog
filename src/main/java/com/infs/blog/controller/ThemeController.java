@@ -39,7 +39,7 @@ public class ThemeController {
     @GetMapping(value = "/theme/articles")
     private Result detail(@RequestParam(value = "themeName") String themeName,
                           @RequestParam(value = "pageNo",defaultValue = "1") Integer pageNo){
-        ApiAssert.notNull(themeName,"主题名称不能为空");
+        ApiAssert.notNull(themeName,"Subject name cannot be empty");
         Page<Article> page = articleService.pageByThemeName(pageNo, siteConfig.getPageSize(), themeName);
         return Result.success(page);
     }

@@ -30,9 +30,9 @@ public class ArticleController {
      */
     @GetMapping(value = "/article/{id}")
     private Result detail(@PathVariable Integer id){
-        ApiAssert.notNull(id,"ID不能为空");
+        ApiAssert.notNull(id,"ID cannot be empty");
         Article article = articleService.findById(id);
-        ApiAssert.notNull(article,"文章不存在");
+        ApiAssert.notNull(article,"Article does not exist");
         //更新文章的点击次数
         article.setViewCount(article.getViewCount() + 1);
         articleService.update(article);
@@ -46,7 +46,7 @@ public class ArticleController {
      */
     @PostMapping(value = "/article")
     public Result save(@RequestBody Article article){
-        ApiAssert.notNull(article,"对象为空");
+        ApiAssert.notNull(article,"Object is null");
         if (StringUtils.isEmpty(article.getArticleUrl())) {
             article.setShowContent(Boolean.TRUE);
         } else {

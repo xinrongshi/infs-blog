@@ -66,12 +66,12 @@ public class IndexController {
         String username = user.getUsername();
         String password = user.getPassword();
         String email = user.getEmail();
-        ApiAssert.notEmpty(username, "请输入用户名");
-        ApiAssert.notEmpty(password, "请输入密码");
-        ApiAssert.isTrue(stringUtil.check(username,stringUtil.usernameRegex),"用户名只能输入[0-9a-zA-Z]，长度4-16位");
-        ApiAssert.isTrue(stringUtil.check(password,stringUtil.passwordRegex),"密码只能输入[0-9a-zA-Z]，长度6-32位");
+        ApiAssert.notEmpty(username, "Please enter your username");
+        ApiAssert.notEmpty(password, "Please enter your password");
+        ApiAssert.isTrue(stringUtil.check(username,stringUtil.usernameRegex),"User name can only be entered [0-9a-zA-Z], length 4-16 bits");
+        ApiAssert.isTrue(stringUtil.check(password,stringUtil.passwordRegex),"Password can only be entered [0-9a-zA-Z], length 6-32 bits");
         user = userService.findUserByName(username);
-        ApiAssert.isNull(user,"用户名已经存在");
+        ApiAssert.isNull(user,"Username already exists");
         // 保存用户
         user = userService.create(username, password, email);
         // 保存Token
@@ -88,13 +88,13 @@ public class IndexController {
         String username = user.getUsername();
         String password = user.getPassword();
         System.out.println(user);
-        ApiAssert.notEmpty(username, "请输入用户名");
-        ApiAssert.notEmpty(password, "请输入密码");
+        ApiAssert.notEmpty(username, "Please enter your username");
+        ApiAssert.notEmpty(password, "Please enter your password");
         User user1 = userService.findUserByName(username);
         System.out.println(user1);
-        ApiAssert.notNull(user, "用户不存在");
-        ApiAssert.isTrue(user1.getPassword().equals(password), "密码不正确");
-//        AccessToken accessToken = accessTokenService.getByUserId(user.getUserId());
+        ApiAssert.notNull(user, "User does not exist.");
+        ApiAssert.isTrue(user1.getPassword().equals(password), "Incorrect password");
+        AccessToken accessToken = accessTokenService.getByUserId(user.getUserId());
         HashMap<String, Object> map = new HashMap<>();
         map.put("username",user.getUsername());
         map.put("avatar",user.getAvatar());

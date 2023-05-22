@@ -43,7 +43,7 @@ public class UserController {
     @GetMapping(value = "/user/articles")
     private Result userArticles(@RequestParam(value = "username") String username,
                                 @RequestParam(value = "pageNo",defaultValue = "1") Integer pageNo){
-        ApiAssert.notNull(username,"作者名称不能为空");
+        ApiAssert.notNull(username,"Author name cannot be empty");
         Page<Article> page = articleService.pageByAuthor(pageNo, siteConfig.getPageSize(), username);
         return Result.success(page);
     }
@@ -56,9 +56,9 @@ public class UserController {
 
     @GetMapping(value = "/users/{username}")
     private Result userDetail(@PathVariable(value = "username") String username){
-        ApiAssert.notNull(username,"作者名称不能为空");
+        ApiAssert.notNull(username,"Author name cannot be empty");
         User user = userService.findUserByName(username);
-        ApiAssert.notNull(user,"用户不存在");
+        ApiAssert.notNull(user,"User does not exist");
         return Result.success(user);
     }
 
