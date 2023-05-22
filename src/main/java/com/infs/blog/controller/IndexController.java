@@ -94,10 +94,10 @@ public class IndexController {
         System.out.println(user1);
         ApiAssert.notNull(user, "User does not exist.");
         ApiAssert.isTrue(user1.getPassword().equals(password), "Incorrect password");
-        AccessToken accessToken = accessTokenService.getByUserId(user.getUserId());
+//        AccessToken accessToken = accessTokenService.getByUserId(user.getUserId());
         HashMap<String, Object> map = new HashMap<>();
-        map.put("username",user.getUsername());
-        map.put("avatar",user.getAvatar());
+        map.put("username",user1.getUsername());
+        map.put("avatar",user1.getAvatar());
 //        map.put("token",accessToken.getToken());
         return Result.success(map);
     }
