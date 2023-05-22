@@ -73,12 +73,12 @@ public class IndexController {
         user = userService.findUserByName(username);
         ApiAssert.isNull(user,"Username already exists");
         // 保存用户
-        user = userService.create(username, password, email);
+        User user1 = userService.create(username, password, email);
         // 保存Token
 //        AccessToken accessToken = accessTokenService.create(jwtTokenUtil.generateToken(user.getUsername()), user.getUserId());
         HashMap<String, Object> map = new HashMap<>();
-        map.put("username",user.getUsername());
-        map.put("avatar",user.getAvatar());
+        map.put("username",user1.getUsername());
+        map.put("avatar",user1.getAvatar());
 //        map.put("token",accessToken.getToken());
         return Result.success(map);
     }
