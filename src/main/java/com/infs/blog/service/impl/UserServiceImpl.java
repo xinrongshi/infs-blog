@@ -52,8 +52,8 @@ public class UserServiceImpl implements UserService {
         user.setUsername(username);
         user.setPassword(password);
         user.setEmail(email);
-        user.setAvatar("https://wx4.sinaimg.cn/large/b8fbd005gy1gxicusldztj20i20i2glv.jpg");
-        user.setSignature("这家伙很懒，什么都没留下");
+        user.setAvatar("https://www.keaitupian.cn/cjpic/frombd/2/253/1141464738/3718995333.jpg");
+        user.setSignature("This guy was lazy and left nothing behind");
         user.setUserUrl("/user/"+username);
         user.setScore(0);
         user.setWebsite(null);
