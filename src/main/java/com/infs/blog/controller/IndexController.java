@@ -91,6 +91,7 @@ public class IndexController {
         ApiAssert.notEmpty(username, "请输入用户名");
         ApiAssert.notEmpty(password, "请输入密码");
         User user1 = userService.findUserByName(username);
+        System.out.println(user1);
         ApiAssert.notNull(user, "用户不存在");
         ApiAssert.isTrue(!(user1.getPassword().equals(password)), "密码不正确");
         AccessToken accessToken = accessTokenService.getByUserId(user.getUserId());
