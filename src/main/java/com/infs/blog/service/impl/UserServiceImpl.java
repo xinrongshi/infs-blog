@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
     public User create(String username, String password, String email) {
         User user = new User();
         user.setUsername(username);
-        user.setPassword(new BCryptPasswordEncoder().encode(password));
+        user.setPassword(password);
         user.setEmail(email);
         user.setAvatar("https://wx4.sinaimg.cn/large/b8fbd005gy1gxicusldztj20i20i2glv.jpg");
         user.setSignature("这家伙很懒，什么都没留下");

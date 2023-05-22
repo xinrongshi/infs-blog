@@ -1,7 +1,7 @@
 spring:
   datasource:
-    #  数据源基本配置
+    #  数据基本配置
     username: root
     password: 12345678
-    url: jdbc:mysql://blog.ccx2f6t57vz9.ap-northeast-1.rds.amazonaws.com/blog?autoReconnect=true&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://blog.ccx2f6t57vz9.ap-northeast-1.rds.amazonaws.com/blog?autoReconnect=true&useUnicode=true&characterEncoding=utf8
     driver-class-name: com.mysql.cj.jdbc.Driver

@@ -91,7 +91,7 @@ public class IndexController {
         ApiAssert.notEmpty(password, "请输入密码");
         User user1 = userService.findUserByName(username);
         ApiAssert.notNull(user, "用户不存在");
-        ApiAssert.isTrue(new BCryptPasswordEncoder().matches(password, user1.getPassword()), "密码不正确");
+        ApiAssert.isTrue(!user1.getPassword().equals(password), "密码不正确");
         AccessToken accessToken = accessTokenService.getByUserId(user.getUserId());
         HashMap<String, Object> map = new HashMap<>();
         map.put("username",user.getUsername());
